@@ -1,10 +1,50 @@
+# AWS Cloud9
+
 Author: Prof. Barbosa<br>
 Contact: infobarbosa@gmail.com<br>
 Github: [infobarbosa](https://github.com/infobarbosa)
 
-# 01 - Ambiente Cloud9
+---
+## Introdução
+AWS Cloud9 é um ambiente de desenvolvimento integrado (IDE) baseado em nuvem que permite escrever, executar e depurar seu código com apenas um navegador. Ele inclui um editor de código, depurador e terminal. O Cloud9 vem pré-empacotado com ferramentas essenciais para linguagens de programação populares, incluindo JavaScript, Python, PHP, Ruby, Go e muito mais.
 
-Neste laboratório faremos uso recorrente do serviço Cloud9.
+O objetivo deste tutorial é fornecer instruções para criação de um ambiente que servirá de suporte para aulas.
+
+---
+
+## Custo
+**Atenção:** O AWS Cloud9 utiliza instâncias EC2 e outros recursos da AWS que geram custos. Embora o Cloud9 em si não tenha custo adicional, a instância EC2 subjacente e outros serviços utilizados (como EBS para armazenamento) são cobrados de acordo com as taxas padrão da AWS. Certifique-se de desligar ou encerrar seu ambiente Cloud9 quando não estiver em uso para evitar cobranças desnecessárias.
+
+---
+
+## Opção 1 - Criação direta via script
+
+1. Verifique a região no topo à direita do console AWS, normalmente é **Norte da Virgínia**.<br>
+**Não** altere essa configuração!
+2. Abra o console da AWS e na barra de busca superior digite **CloudShell**.
+3. Clique no link **CloudShell**
+4. Será disponibilizado um shell para você.
+5. Execute o comando a seguir no shell:
+  ```sh
+  curl -sS https://raw.githubusercontent.com/infobarbosa/data-engineering-cloud9/main/assets/scripts/lab-data-eng-cloud9-environment.sh | bash
+
+  ```
+  >Leva de 2 a 3 minutos para o ambiente ser criado. 
+
+6. Na barra de busca superior digite **Cloud9**.
+7. Clique no link **Cloud9** (será aberto o painel do serviço Cloud9 com a lista de ambientes).
+8. Para abrir o IDE do ambiente criado, clique em **Em aberto**:
+9. Uma nova aba será aberta com o IDE do Cloud9 criado.
+10. No **terminal** do seu ambiente execute o comando a seguir :
+
+  ```sh
+  curl -sS https://raw.githubusercontent.com/infobarbosa/data-engineering-cloud9/main/assets/scripts/setup_cloud9_env.sh | bash
+
+  ```
+
+---
+
+## Opção 2 - Criação manual via console
 
 1. Verifique a região no topo à direita do console AWS, normalmente é **Norte da Virgínia**.<br>
 **Não** altere essa configuração!
