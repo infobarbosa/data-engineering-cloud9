@@ -1,11 +1,11 @@
 echo "### Atualizando o sistema ###"
-sudo apt update -y
+sudo apt update -y && sudo apt upgrade -y
 
 echo "### Instalando o pacote boto3  ###"
 pip install boto3
 
-echo "### Instalando o jq, a lightweight and flexible command-line JSON processor  ###"
-sudo apt install -y jq tree
+echo "### Instalando dependências necessárias para o laboratório  ###"
+sudo apt install -y jq tree openjdk-17-jdk
 
 echo "### Redimensionando o disco ###"
 echo "### O tamanho desejado em GiB ###"
