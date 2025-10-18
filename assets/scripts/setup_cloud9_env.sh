@@ -7,6 +7,9 @@ pip install boto3
 echo "### Instalando dependências necessárias para o laboratório  ###"
 sudo apt install -y jq tree openjdk-17-jdk
 
+echo "### Atualizando o NPM para a última versão ###"
+sudo npm install -g npm@latest
+
 echo "### Redimensionando o disco ###"
 echo "### O tamanho desejado em GiB ###"
 export CLOUD9_DISK_NEW_SIZE=150
