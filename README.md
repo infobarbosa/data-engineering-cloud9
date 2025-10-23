@@ -141,7 +141,7 @@ Ajustei o tutorial para incluir a criação de um arquivo `.gitignore` *antes* d
 
 -----
 
-## Tutorial: Conectando seu Projeto Python (com Venv) do AWS Cloud9 ao GitHub com SSH
+## Tutorial: Conectando seu Projeto do AWS Cloud9 ao GitHub com SSH
 
 Este guia mostrará como pegar um projeto Python existente (que usa `venv`) no Cloud9 e enviá-lo para um **novo repositório** no GitHub usando autenticação por chave SSH, garantindo que o ambiente virtual seja ignorado.
 
