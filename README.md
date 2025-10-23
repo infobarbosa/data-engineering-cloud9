@@ -277,6 +277,7 @@ Agora, vamos configurar o Git dentro da pasta do seu projeto no Cloud9.
     # Ambiente Virtual do Python
     # Substitua "venv/" se seu ambiente tiver outro nome
     venv/
+    .venv/
 
     # Arquivos de cache do Python
     __pycache__/
