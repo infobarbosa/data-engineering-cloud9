@@ -171,6 +171,7 @@ Precisamos de um par de chaves (pública e privada) para que o GitHub "reconheç
 
 5.  O terminal exibirá sua chave pública (começa com `ssh-ed25519...`). **Selecione e copie o texto inteiro**, com cuidado para não copiar espaços extras.
 
+---
 ### Parte 2: Adicionar sua Chave SSH Pública ao GitHub
 
 Agora, vamos informar ao GitHub sobre sua chave pública.
@@ -185,6 +186,7 @@ Agora, vamos informar ao GitHub sobre sua chave pública.
       * **Key (Chave):** **Cole** a chave pública inteira que você copiou do terminal do Cloud9.
 6.  Clique em **Add SSH key** (Adicionar chave SSH).
 
+---
 ### Parte 3: Testar a Conexão SSH
 
 Vamos verificar se o Cloud9 e o GitHub conseguem se comunicar.
@@ -205,6 +207,7 @@ Vamos verificar se o Cloud9 e o GitHub conseguem se comunicar.
     `Hi seu-username! You've successfully authenticated, but GitHub does not provide shell access.`
     Isso é um **sucesso**\! A autenticação funcionou.
 
+---
 ### Parte 4: Criar o Repositório no GitHub
 
 Vamos criar o "contêiner" vazio no GitHub que receberá seus arquivos.
@@ -214,6 +217,7 @@ Vamos criar o "contêiner" vazio no GitHub que receberá seus arquivos.
 3.  **IMPORTANTE:** *Não* marque nenhuma das caixas de inicialização (`Add a README file`, `Add .gitignore`, `Choose a license`). Seu repositório precisa estar **completamente vazio**.
 4.  Clique em **Create repository** (Criar repositório).
 
+---
 ### Parte 5: Preparar seu Repositório Local no Cloud9
 
 Agora, vamos configurar o Git dentro da pasta do seu projeto no Cloud9.
@@ -250,20 +254,28 @@ Agora, vamos configurar o Git dentro da pasta do seu projeto no Cloud9.
 
       * `origin` é o apelido padrão para o seu repositório remoto.
 
+---
 ### Parte 6: Criar o `.gitignore` (O Passo Crucial)
 
-**Antes** de adicionarmos qualquer arquivo, precisamos dizer ao Git o que ele deve *ignorar*. A pasta `venv` (que contém centenas de arquivos) é o principal item a ser ignorado.
+**Antes** de adicionar qualquer arquivo, vamos dizer ao Git o que ele deve *ignorar* usando a interface gráfica do Cloud9.
 
-1.  Ainda no terminal, na raiz do seu projeto, vamos criar e editar o arquivo `.gitignore` usando o editor `nano`:
+1.  Na **árvore de arquivos** do Cloud9 (painel à esquerda, chamado "Environment"), localize a pasta raiz do seu projeto.
 
-    ```bash
-    nano .gitignore
-    ```
+2.  Clique com o **botão direito** no nome da sua pasta de projeto.
 
-2.  O editor `nano` abrirá. **Copie e cole** o conteúdo abaixo para dentro do editor. Este é um bom `.gitignore` básico para projetos Python e para o ambiente Cloud9:
+3.  Selecione **New File**.
+
+4.  O Cloud9 criará um arquivo "Untitled". Renomeie-o imediatamente para:
+    `.gitignore`
+    (É muito importante que comece com um **ponto**). Pressione **Enter**.
+
+5.  O arquivo `.gitignore` vazio abrirá automaticamente no editor.
+
+6.  **Copie e cole** o conteúdo abaixo para dentro deste arquivo:
 
     ```text
     # Ambiente Virtual do Python
+    # Substitua "venv/" se seu ambiente tiver outro nome
     venv/
 
     # Arquivos de cache do Python
@@ -279,15 +291,9 @@ Agora, vamos configurar o Git dentro da pasta do seu projeto no Cloud9.
     .c9/
     ```
 
-    *(Nota: Se você nomeou seu ambiente virtual de forma diferente, substitua `venv/` pelo nome da sua pasta, ex: `meu_env/`)*
+7.  **Salve o arquivo.** Você pode usar o atalho `Ctrl + S` (que funciona no editor) ou ir ao menu `File > Save`. Feche a aba do arquivo.
 
-3.  Para salvar e sair do `nano`:
-
-      * Pressione **Ctrl + O** (Write Out)
-      * Pressione **Enter** para confirmar o nome do arquivo (`.gitignore`).
-      * Pressione **Ctrl + X** para sair do editor.
-
-4.  Agora você tem um arquivo `.gitignore` na sua pasta.
+---
 
 ### Parte 7: Fazer seu Primeiro Commit e Push
 
@@ -317,6 +323,7 @@ Agora que o Git sabe o que ignorar, podemos adicionar e enviar nossos arquivos c
     git push -u origin main
     ```
 
+---
 ### Parte 8: Verificar no GitHub
 
 1.  Volte para a página do seu repositório no GitHub.
