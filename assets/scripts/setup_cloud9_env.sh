@@ -1,6 +1,16 @@
 echo "### Configurando ambiente não interativo ###"
 export DEBIAN_FRONTEND=noninteractive
 
+# 1. Informa ao debconf para não fazer perguntas
+export DEBIAN_FRONTEND=noninteractive
+
+# 2. Configura o needrestart para não ser interativo
+# 'a' significa automático (reinicia serviços sem perguntar)
+# kernelhints = 0 desativa o aviso de kernel pendente que você recebeu
+sudo sed -i 's/#$nrconf{restart} = .*/$nrconf{restart} = "a";/' /etc/needrestart/needrestart.conf
+sudo sed -i 's/#$nrconf{kernelhints} = .*/$nrconf{kernelhints} = 0;/' /etc/needrestart/needrestart.conf
+sudo sed -i 's/#$nrconf{ucodehints} = .*/$nrconf{ucodehints} = 0;/' /etc/needrestart/needrestart.conf
+
 echo "### Atualizando o sistema ###"
 # O prefixo DEBIAN_FRONTEND garante que o apt ignore os prompts
 sudo -E apt update -y
@@ -10,7 +20,7 @@ echo "### Instalando o pacote boto3  ###"
 pip install boto3
 
 echo "### Instalando dependências necessárias para o laboratório  ###"
-sudo apt install -y jq tree openjdk-17-jdk
+sudo -E apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" jq tree openjdk-17-jdk
 
 echo "### Atualizando o NPM para a última versão ###"
 sudo npm install -g npm@latest
