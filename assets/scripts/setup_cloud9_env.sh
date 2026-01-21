@@ -1,5 +1,6 @@
 echo "### Atualizando o sistema ###"
-sudo apt update -y && sudo apt upgrade -y
+# sudo apt update -y && sudo apt upgrade -y
+sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 
 echo "### Instalando o pacote boto3  ###"
 pip install boto3
