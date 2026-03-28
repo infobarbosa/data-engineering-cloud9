@@ -14,18 +14,12 @@ echo "### Atualizando o sistema ###"
 sudo -E apt update -y
 sudo -E apt upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 
-echo "### Instalando o pacote boto3  ###"
-pip install boto3 pyspark
-
 echo "### Instalando dependências necessárias para o laboratório  ###"
-sudo -E apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" jq tree openjdk-17-jdk
-
-echo "### Atualizando o NPM para a última versão ###"
-sudo npm install -g npm@latest
+sudo -E apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" jq tree
 
 echo "### Redimensionando o disco ###"
 echo "### O tamanho desejado em GiB ###"
-export CLOUD9_DISK_NEW_SIZE=150
+export CLOUD9_DISK_NEW_SIZE=100
 
 echo "### O ID da instância EC2 do ambiente Cloud9 ###"
 export CLOUD9_EC2_INSTANCE_ID=$(curl http://169.254.169.254/latest/meta-data//instance-id)
@@ -72,3 +66,18 @@ else
 	sudo resize2fs /dev/nvme0n1p1
 fi
 
+echo "### Conferindo o tamanho do disco ###"
+df -h
+
+echo "### Instalando pacotes Python ###"
+pip install boto3 pyspark
+
+echo "### Instalando o Java 17 ###"
+sudo -E apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" openjdk-17-jdk
+
+echo "### Configurando o Java 17 como padrão ###"
+sudo update-alternatives --set java $(update-alternatives --list java | grep java-17 | head -n 1)
+sudo update-alternatives --set javac $(update-alternatives --list javac | grep java-17 | head -n 1)
+
+echo "### Atualizando o NPM para a última versão ###"
+sudo npm install -g npm@latest
