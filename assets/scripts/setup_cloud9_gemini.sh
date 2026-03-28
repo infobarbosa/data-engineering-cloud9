@@ -67,7 +67,7 @@ else
 	sudo resize2fs /dev/nvme0n1p1
 fi
 
-echo "### Conferindo o tamanho do disco ###""
+echo "### Conferindo o tamanho do disco ###"
 df -h
 
 echo "### Instalando pacotes Python ###"
