@@ -42,6 +42,14 @@ O objetivo deste tutorial é fornecer instruções para criação de um ambiente
 
   ```
 
+#### **Gemini CLI**
+  Alternativamente, o script abaixo faz o mesmo que o script acima, mas com a instalação do Gemini CLI:
+
+  ```sh
+  curl -sS https://raw.githubusercontent.com/infobarbosa/data-engineering-cloud9/main/assets/scripts/setup_cloud9_gemini.sh | bash
+  
+  ```
+
 ---
 
 ## Opção 2 - Criação manual via console
