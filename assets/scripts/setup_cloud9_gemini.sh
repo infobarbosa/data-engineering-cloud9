@@ -14,14 +14,9 @@ echo "### Atualizando o sistema ###"
 sudo -E apt update -y
 sudo -E apt upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 
-echo "### Instalando o pacote boto3  ###"
-pip install boto3 pyspark
 
 echo "### Instalando dependências necessárias para o laboratório  ###"
-sudo -E apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" jq tree openjdk-17-jdk
-
-echo "### Atualizando o NPM para a última versão ###"
-sudo npm install -g npm@latest
+sudo -E apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" jq tree
 
 echo "### Instalando o Gemini CLI ###"
 sudo npm install -g @google/gemini-cli
@@ -75,3 +70,18 @@ else
 	sudo resize2fs /dev/nvme0n1p1
 fi
 
+echo "### Conferindo o tamanho do disco ###""
+df -h
+
+echo "### Instalando pacotes Python ###"
+pip install boto3 pyspark
+
+echo "### Instalando o Java 21 ###"
+sudo -E apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" openjdk-21-jdk
+
+echo "### Configurando o Java 21 como padrão ###"
+sudo update-alternatives --set java $(update-alternatives --list java | grep java-21 | head -n 1)
+sudo update-alternatives --set javac $(update-alternatives --list javac | grep java-21 | head -n 1)
+
+echo "### Atualizando o NPM para a última versão ###"
+sudo npm install -g npm@latest
