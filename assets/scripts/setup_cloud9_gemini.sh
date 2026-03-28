@@ -18,9 +18,6 @@ sudo -E apt upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="
 echo "### Instalando dependências necessárias para o laboratório  ###"
 sudo -E apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" jq tree
 
-echo "### Instalando o Gemini CLI ###"
-sudo npm install -g @google/gemini-cli
-
 echo "### Redimensionando o disco ###"
 echo "### O tamanho desejado em GiB ###"
 export CLOUD9_DISK_NEW_SIZE=100
@@ -85,3 +82,7 @@ sudo update-alternatives --set javac $(update-alternatives --list javac | grep j
 
 echo "### Atualizando o NPM para a última versão ###"
 sudo npm install -g npm@latest
+
+echo "### Instalando o Gemini CLI ###"
+sudo npm install -g @google/gemini-cli
+
