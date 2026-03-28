@@ -1,6 +1,4 @@
 echo "### Configurando ambiente não interativo ###"
-export DEBIAN_FRONTEND=noninteractive
-
 # 1. Informa ao debconf para não fazer perguntas
 export DEBIAN_FRONTEND=noninteractive
 
@@ -17,7 +15,7 @@ sudo -E apt update -y
 sudo -E apt upgrade -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold"
 
 echo "### Instalando o pacote boto3  ###"
-pip install boto3
+pip install boto3 pyspark
 
 echo "### Instalando dependências necessárias para o laboratório  ###"
 sudo -E apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" jq tree openjdk-17-jdk
