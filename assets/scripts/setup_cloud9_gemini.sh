@@ -80,8 +80,11 @@ echo "### Configurando o Java 21 como padrão ###"
 sudo update-alternatives --set java $(update-alternatives --list java | grep java-21 | head -n 1)
 sudo update-alternatives --set javac $(update-alternatives --list javac | grep java-21 | head -n 1)
 
-echo "### Atualizando o NPM para a última versão ###"
-sudo npm install -g npm@latest
+echo "### Removendo o NPM instalado globalmente ###"
+sudo rm -rf /usr/lib/node_modules/npm
+
+echo "### Reinstalando o NPM na última versão###"
+curl -qL https://www.npmjs.com/install.sh | sudo sh
 
 echo "### Instalando o Gemini CLI ###"
 sudo npm install -g @google/gemini-cli
