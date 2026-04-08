@@ -72,12 +72,15 @@ df -h
 echo "### Instalando pacotes Python ###"
 pip install boto3 pyspark
 
-echo "### Instalando o Java 17 ###"
-sudo -E apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" openjdk-17-jdk
+echo "### Instalando o Java 21 ###"
+sudo -E apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" openjdk-21-jdk
 
-echo "### Configurando o Java 17 como padrão ###"
-sudo update-alternatives --set java $(update-alternatives --list java | grep java-17 | head -n 1)
-sudo update-alternatives --set javac $(update-alternatives --list javac | grep java-17 | head -n 1)
+echo "### Configurando o Java 21 como padrão ###"
+sudo update-alternatives --set java $(update-alternatives --list java | grep java-21 | head -n 1)
+sudo update-alternatives --set javac $(update-alternatives --list javac | grep java-21 | head -n 1)
 
-echo "### Atualizando o NPM para a última versão ###"
-sudo npm install -g npm@latest
+echo "### Removendo o NPM instalado globalmente ###"
+sudo rm -rf /usr/lib/node_modules/npm
+
+echo "### Reinstalando o NPM na última versão###"
+curl -qL https://www.npmjs.com/install.sh | sudo sh
