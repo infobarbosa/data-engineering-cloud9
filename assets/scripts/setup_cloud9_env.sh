@@ -70,7 +70,7 @@ echo "### Conferindo o tamanho do disco ###"
 df -h
 
 echo "### Instalando pacotes Python ###"
-pip install boto3 pyspark
+pip install boto3 pyspark pandas pyarrow
 
 echo "### Instalando o Java 21 ###"
 sudo -E apt install -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" openjdk-21-jdk
